@@ -1,0 +1,306 @@
+/* ==========================================================================
+   Base Styles & Color Variables (Matching your Dark Theme)
+   ========================================================================== */
+:root {
+    --bg-main: #0b0e14;
+    --bg-card: #161e2c;
+    --bg-nav-pill: rgba(255, 255, 255, 0.05);
+    --text-primary: #ffffff;
+    --text-secondary: #94a3b8;
+    --accent-cyan: #00f2fe;
+    --accent-glow: rgba(0, 242, 254, 0.5);
+    --danger-red: #ef4444; /* Used for the remove button */
+    --danger-glow: rgba(239, 68, 68, 0.4);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    line-height: 1.6;
+    padding-bottom: 50px;
+}
+
+/* ==========================================================================
+   Page Header
+   ========================================================================== */
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 40px 0 30px;
+    color: var(--text-primary);
+    position: relative;
+}
+
+h1::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--accent-cyan);
+    margin: 12px auto 0;
+    border-radius: 2px;
+    box-shadow: 0 0 8px var(--accent-glow);
+}
+
+/* ==========================================================================
+   Cart Container & Layout
+   ========================================================================== */
+.cart-container {
+    max-width: 800px; /* Kept narrower than the main site for a better checkout focus */
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ==========================================================================
+   Cart Items (Dark Cards)
+   ========================================================================== */
+.cart-item {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 20px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+    gap: 20px;
+}
+
+.cart-item:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 242, 254, 0.3);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Cart Item Details */
+.cart-item-details {
+    flex-grow: 1;
+}
+
+.cart-item-details h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 5px;
+}
+
+.cart-item-details p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 2px;
+}
+
+/* Make the specific Total Price of the item stand out slightly */
+.cart-item-details p:last-child {
+    color: var(--accent-cyan);
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   Quantity Controls (+ / - Buttons)
+   ========================================================================== */
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50px;
+    padding: 5px 15px;
+    gap: 15px;
+}
+
+.quantity-controls form {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.quantity-btn {
+    background: transparent;
+    border: none;
+    color: var(--accent-cyan);
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.quantity-btn:hover:not(:disabled) {
+    background: rgba(0, 242, 254, 0.15);
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.quantity-btn:disabled {
+    color: #555;
+    cursor: not-allowed;
+}
+
+.quantity-controls p {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    min-width: 20px;
+    text-align: center;
+}
+
+/* ==========================================================================
+   Remove Button
+   ========================================================================== */
+.remove-btn {
+    background: transparent;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: var(--danger-red);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.remove-btn:hover {
+    background: rgba(239, 68, 68, 0.1);
+    border-color: var(--danger-red);
+    box-shadow: 0 0 15px var(--danger-glow);
+}
+
+/* ==========================================================================
+   Grand Total Section
+   ========================================================================== */
+.total {
+    text-align: right;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin-top: 10px;
+}
+
+.total::after {
+    /* To make only the amount cyan, if desired. In your JSP it's together, so we just style the whole block. */
+}
+
+/* ==========================================================================
+   Action Buttons (Add More & Checkout)
+   ========================================================================== */
+.btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+}
+
+.add-more-items {
+    margin-bottom: 10px;
+}
+
+/* "Add More Items" - Secondary Button Style */
+.add-more-items-btn {
+    background: transparent;
+    border: 2px solid var(--accent-cyan);
+    color: var(--accent-cyan);
+}
+
+.add-more-items-btn:hover {
+    background: rgba(0, 242, 254, 0.05);
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
+}
+
+/* "Proceed to Checkout" - Primary Glowing Button Style */
+.proceed-to-checkout-btn {
+    background: var(--accent-cyan);
+    color: #000000; /* Dark text for high contrast against Cyan */
+    box-shadow: 0 4px 15px var(--accent-glow);
+    margin-top: 10px;
+}
+
+.proceed-to-checkout-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px var(--accent-glow);
+    background: #1cf5ff;
+}
+
+/* Form wrapper for checkout button */
+form[action="checkout.jsp"] {
+    width: 100%;
+}
+
+/* ==========================================================================
+   Empty Cart State
+   ========================================================================== */
+p[style*="text-align: center"] {
+    font-size: 1.2rem;
+    padding: 40px 0 20px;
+    color: var(--text-secondary) !important;
+}
+
+.add-more-items a[href="restaurant"] {
+    display: block;
+    max-width: 300px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 12px;
+    background: var(--accent-cyan);
+    color: #000;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px var(--accent-glow);
+    transition: all 0.3s ease;
+}
+
+.add-more-items a[href="restaurant"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px var(--accent-glow);
+}
+
+/* ==========================================================================
+   Responsive Design for Mobile
+   ========================================================================== */
+@media (max-width: 600px) {
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .quantity-controls {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .cart-item form[action="cart"]:last-child {
+        width: 100%;
+    }
+
+    .remove-btn {
+        width: 100%;
+    }
+}

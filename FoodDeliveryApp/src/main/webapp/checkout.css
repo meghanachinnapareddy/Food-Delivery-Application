@@ -1,0 +1,178 @@
+/* ==========================================================================
+   Import Font (Since it wasn't in your HTML head)
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ==========================================================================
+   Base Styles & Color Variables (Matching your Dark Theme)
+   ========================================================================== */
+:root {
+    --bg-main: #0b0e14;
+    --bg-card: #161e2c;
+    --text-primary: #ffffff;
+    --text-secondary: #94a3b8;
+    --accent-cyan: #00f2fe;
+    --accent-glow: rgba(0, 242, 254, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px; /* Padding for mobile screens */
+}
+
+/* ==========================================================================
+   Checkout Card Container
+   ========================================================================== */
+.container {
+    background: var(--bg-card);
+    width: 100%;
+    max-width: 550px; /* Keeps the form looking neat and readable */
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Add the premium hover glow effect */
+.container:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 242, 254, 0.3);
+    box-shadow: 0 15px 35px var(--accent-glow);
+}
+
+/* ==========================================================================
+   Heading Style
+   ========================================================================== */
+h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 35px;
+    color: var(--text-primary);
+    position: relative;
+}
+
+/* Glowing Cyan Underline */
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--accent-cyan);
+    margin: 12px auto 0;
+    border-radius: 2px;
+    box-shadow: 0 0 8px var(--accent-glow);
+}
+
+/* ==========================================================================
+   Form Elements Layout
+   ========================================================================== */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Spacing between input groups */
+}
+
+label {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: -10px; /* Pulls label slightly closer to the input */
+    letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   Inputs (Textarea & Select Box)
+   ========================================================================== */
+textarea, select {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.25); /* Darker inset feel for inputs */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 16px;
+    color: var(--text-primary);
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Placeholder text styling */
+textarea::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+textarea {
+    resize: vertical; /* Allows user to resize only up/down */
+    min-height: 120px;
+}
+
+/* Focus State - Cyan borders when typing/clicking */
+textarea:focus, select:focus {
+    border-color: var(--accent-cyan);
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 12px rgba(0, 242, 254, 0.2);
+}
+
+/* Style the dropdown options (Browser dependent, but helps in Dark Mode) */
+option {
+    background-color: var(--bg-card);
+    color: var(--text-primary);
+    padding: 10px;
+}
+
+/* ==========================================================================
+   Submit Button (Neon Glow)
+   ========================================================================== */
+input[type="submit"] {
+    background: var(--accent-cyan);
+    color: #000000; /* Dark text for high contrast */
+    border: none;
+    padding: 16px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px var(--accent-glow);
+    margin-top: 15px;
+}
+
+input[type="submit"]:hover {
+    transform: translateY(-2px);
+    background: #1cf5ff; /* Slightly brighter cyan */
+    box-shadow: 0 8px 25px var(--accent-glow);
+}
+
+input[type="submit"]:active {
+    transform: translateY(1px);
+    box-shadow: 0 4px 10px var(--accent-glow);
+}
+
+/* ==========================================================================
+   Responsive Design for Mobile
+   ========================================================================== */
+@media (max-width: 480px) {
+    .container {
+        padding: 30px 20px;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+}

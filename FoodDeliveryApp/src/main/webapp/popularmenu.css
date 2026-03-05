@@ -1,0 +1,384 @@
+/* ==========================================================================
+   Base Styles & Color Variables (Matching Restaurant Theme)
+   ========================================================================== */
+:root {
+    --bg-main: #0b0e14;
+    --bg-card: #161e2c;
+    --bg-nav-pill: rgba(255, 255, 255, 0.05);
+    --text-primary: #ffffff;
+    --text-secondary: #94a3b8;
+    --accent-cyan: #00f2fe;
+    --accent-glow: rgba(0, 242, 254, 0.5);
+    --badge-color: #a855f7; /* Purple for cart badge */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ==========================================================================
+   Navigation Bar
+   ========================================================================== */
+.navbar {
+    background-color: var(--bg-main);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 10px 0;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+}
+
+.logo-image {
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: 0.5px;
+}
+
+/* Pill-shaped center navigation */
+.nav-center {
+    display: flex;
+    gap: 30px;
+    background: var(--bg-nav-pill);
+    padding: 12px 35px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--text-primary);
+}
+
+/* Active link styling (Cyan Underline for Menu) */
+.nav-link.active {
+    color: var(--text-primary);
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent-cyan);
+    border-radius: 2px;
+    box-shadow: 0 0 8px var(--accent-glow);
+}
+
+/* ==========================================================================
+   Navigation Right Side - Icons & Badge (Fixed)
+   ========================================================================== */
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.nav-icons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+/* Circular button style for Cart and Profile icons */
+.nav-icons .icon {
+    background: var(--bg-nav-pill);
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    text-decoration: none;
+    position: relative;
+}
+
+.nav-icons .icon:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--accent-cyan);
+    border-color: rgba(0, 242, 254, 0.3);
+}
+
+/* Notification Badge on the Cart Icon */
+.nav-icons .badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background-color: var(--badge-color);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 800;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 2px solid var(--bg-main);
+}
+
+/* ==========================================================================
+   Hero Section (Gap Reduced)
+   ========================================================================== */
+.hero {
+    /* Reduced padding and removed margin to close the gap */
+    padding: 30px 20px 10px; 
+    text-align: center;
+    color: var(--text-primary);
+}
+
+.hero-content h1 {
+    font-size: 3.2rem;
+    font-weight: 800;
+    margin-bottom: 5px;
+    letter-spacing: -1px;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   Menu Section
+   ========================================================================== */
+.menu-section h2 {
+    font-size: 2.2rem;
+    color: var(--text-primary);
+    margin-top: 10px; /* Brings it closer to the hero section */
+    margin-bottom: 40px;
+    font-weight: 800;
+    text-align: center;
+    position: relative;
+}
+
+/* Glowing underline under "Popular Dishes" */
+.menu-section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--accent-cyan);
+    margin: 12px auto 0;
+    border-radius: 2px;
+    box-shadow: 0 0 8px var(--accent-glow);
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    padding-bottom: 80px;
+    justify-content: center;
+}
+
+/* ==========================================================================
+   Menu Cards (Neon Glow on Hover)
+   ========================================================================== */
+.menu-item {
+    background: var(--bg-card);
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column; /* Ensures content stretches properly */
+}
+
+.menu-item:hover {
+    transform: translateY(-8px);
+    border-color: rgba(0, 242, 254, 0.3);
+    box-shadow: 0 15px 35px var(--accent-glow);
+}
+
+.menu-image {
+    position: relative;
+    height: 220px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.menu-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.menu-item:hover .menu-image img {
+    transform: scale(1.08);
+}
+
+/* Bestseller Badge */
+.menu-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: rgba(255, 193, 7, 0.8); /* Gold background for BESTSELLER */
+    color: #000;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    backdrop-filter: blur(8px);
+}
+
+/* Info Section of Card */
+.menu-info {
+    padding: 25px;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Pushes the button to the bottom evenly */
+}
+
+.menu-info h3 {
+    font-size: 1.4rem;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.description {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    flex-grow: 1;
+    /* Limit description to 2 lines for uniform card heights */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Footer / Meta Data of Menu Card */
+.menu-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    margin-bottom: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--text-primary);
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 4px 10px;
+    border-radius: 8px;
+}
+
+.rating i {
+    color: #ffc107;
+}
+
+.price {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--accent-cyan); /* Price in Cyan */
+}
+
+/* ==========================================================================
+   Add To Cart Button (Premium Style)
+   ========================================================================== */
+.add-to-cart {
+    width: 100%;
+    padding: 12px;
+    background: rgba(0, 242, 254, 0.1);
+    color: var(--accent-cyan);
+    border: 1px solid rgba(0, 242, 254, 0.3);
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.add-to-cart:hover {
+    background: var(--accent-cyan);
+    color: var(--bg-main); /* Dark text on hover */
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+@media (max-width: 768px) {
+    .nav-center {
+        display: none;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+}

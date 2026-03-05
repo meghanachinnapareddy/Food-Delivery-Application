@@ -1,0 +1,220 @@
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== FULL SCREEN SETUP ===== */
+html, body {
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    /* Dark premium background for the whole page */
+    background: #0b0f19; 
+    color: #ffffff;
+}
+
+/* ===== HEADER LAYOUT ===== */
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: linear-gradient(to bottom, rgba(11, 15, 25, 0.9), transparent);
+}
+
+/* ===== LOGO ===== */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px; /* Slightly square like the reference */
+    object-fit: cover;
+}
+
+.logo h2 {
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #ffffff;
+    font-size: 22px;
+}
+
+/* ===== NAV PILL (Reduced Length Navbar) ===== */
+.nav-pill {
+    background: rgba(25, 30, 45, 0.8);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 12px 30px;
+    border-radius: 40px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #a0aec0;
+    font-weight: 500;
+    font-size: 15px;
+    transition: 0.3s ease;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #ffffff;
+}
+
+/* Neon underline for active/hover */
+.nav-links a.active::after, .nav-links a:hover::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #00f2fe; /* Cyan accent */
+    border-radius: 2px;
+    box-shadow: 0 0 10px #00f2fe;
+}
+
+/* ===== NAV ICONS ===== */
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-icons .icon {
+    color: #a0aec0;
+    font-size: 18px;
+    background: rgba(25, 30, 45, 0.8);
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+}
+
+.nav-icons .icon:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Notification Badge on Cart */
+.badge {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #b137ff; /* Purple accent */
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 5%;
+}
+
+/* ===== THE IMAGE CARD ===== */
+.hero-card {
+    width: 100%;
+    max-width: 1200px;
+    height: 550px;
+    border-radius: 30px;
+    margin-top: 60px; /* Space for navbar */
+    display: flex;
+    align-items: center;
+    padding: 60px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    
+    /* THE BACKGROUND IMAGE GOES HERE */
+    /* The linear-gradient creates a dark fade on the left so text is readable */
+    /* Replace 'bg.jfif' with your exact image path */
+    background: linear-gradient(to right, #0b0f19 20%, rgba(11, 15, 25, 0.7) 50%, transparent 100%),
+                url('images/bg.jfif') center/cover no-repeat;
+}
+
+/* ===== HERO TEXT ===== */
+.hero-text {
+    max-width: 500px;
+    text-align: left; /* Aligned left like the reference */
+}
+
+.hero-text h1 {
+    font-size: 58px;
+    font-weight: 900;
+    line-height: 1.1;
+    color: #ffffff;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.hero-text p {
+    font-size: 16px;
+    color: #cbd5e1;
+    font-weight: 400;
+    margin-bottom: 40px;
+}
+
+/* ===== NEON BUTTON ===== */
+.explore-btn {
+    display: inline-block;
+    padding: 16px 45px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    color: #ffffff; /* Keep text white */
+    /* Vibrant Cyan to Purple/Blue Gradient */
+    background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+    box-shadow: 0 10px 25px rgba(0, 242, 254, 0.3);
+    transition: all 0.3s ease;
+}
+
+.explore-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(0, 242, 254, 0.5);
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 900px) {
+    .nav-pill { display: none; } /* Hide middle nav on small screens */
+    
+    .hero-card {
+        padding: 40px;
+        background: linear-gradient(to right, rgba(11,15,25,0.9) 0%, rgba(11,15,25,0.7) 100%), url('bg.jfif') center/cover;
+    }
+    
+    .hero-text h1 { font-size: 40px; }
+}
